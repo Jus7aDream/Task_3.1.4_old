@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <title>all-users</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<div class="form-group text-center">
+    <h5>Delete user</h5>
+</div>
+<body>
+<div class="border shadow-sm p-3 mb-5 bg-white rounded-bottom topTable"
+     style="max-width: 98%;">
+    <div class="m-auto" style="max-width: 25%;">
+        <form th:method="DELETE" th:action="@{/admin/users/{id}(id=${user.getId()})}" th:object="${user}">
+            <div class="form-group text-center">
+                <label for="id"><strong>ID</strong></label>
+                <input type="text" th:field="*{id}"
+                       class="form-control form-control-sm" id="id"
+                       placeholder="firstName" disabled="disabled">
+            </div>
+            <div class="form-group text-center">
+                <label for="firstName"><strong>First Name</strong></label>
+                <input type="text" th:field="*{firstName}"
+                       class="form-control form-control-sm" id="firstName"
+                       placeholder="firstName" disabled="disabled">
+            </div>
+            <div class="form-group text-center">
+                <label for="lastName"><strong>Last Name</strong></label>
+                <input type="text" th:field="*{lastName}"
+                       class="form-control form-control-sm" id="lastName"
+                       placeholder="lastName" disabled="disabled">
+            </div>
+            <div class="form-group text-center">
+                <label for="Age"><strong>Age</strong></label>
+                <input type="number" th:field="*{age}"
+                       class="form-control form-control-sm" id="Age"
+                       placeholder="Age" disabled="disabled">
+            </div>
+            <div class="form-group text-center">
+                <label for="email"><strong>Email</strong></label>
+                <input type="email" th:field="*{email}"
+                       class="form-control form-control-sm" id="email"
+                       placeholder="email" disabled="disabled">
+            </div>
+            <div class="form-group text-center">
+                <label for="roles"><strong>Role</strong></label>
+                <select multiple name="roles[]" required
+                        class="form-control form-control-sm" id="roles"
+                        size="2" disabled="disabled">
+                    <th:block th:each="role : ${allRoles}">
+                        <option th:text="${role}"
+                                th:value="${role.getId()}"></option>
+                    </th:block>
+                </select>
+            </div>
+            <div class="form-group text-right">
+                <td><a th:href="@{/admin/users}">
+                    <button type="button" class="btn btn-secondary">Close</button>
+                </a></td>
+                <td th:method="DELETE" th:action="@{/admin/users/{id}(id=${user.getId()})}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </td>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

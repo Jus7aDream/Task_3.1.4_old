@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
 <head>
-    <title>Spring Security Example</title>
+    <h1>Home</h1>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <title>all-users</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1>Welcome to Index PAGE!</h1>
-
-
+<br>
+<div class="d-flex align-items-start">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="/" role="tab"
+           aria-controls="v-pills-home" aria-selected="true">Home</a>
+        <a class="nav-link" id="v-pills-crud-tab" data-bs-toggle="pill" href="/admin/users" role="tab"
+           aria-controls="v-pills-crud" aria-selected="false">CRUD</a>
+        <a class="nav-link" id="v-pills-admin-tab" data-bs-toggle="pill" href="/admin/admin" role="tab"
+           aria-controls="v-pills-admin" aria-selected="false">ADMIN</a>
+        <a class="nav-link" id="v-pills-user-tab" data-bs-toggle="pill" href="/user" role="tab"
+           aria-controls="v-pills-user" aria-selected="false">USER</a>
+        <a class="nav-link" id="v-pills-logout-tab" data-bs-toggle="pill" href="/logout" role="tab"
+           aria-controls="v-pills-logout" aria-selected="false">LogOut</a>
+    </div>
+</div>
 </body>
 </html>
