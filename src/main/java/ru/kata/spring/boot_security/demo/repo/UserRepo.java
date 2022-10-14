@@ -11,7 +11,7 @@ import java.util.Optional;
  */
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
-    User findUserByUsername(String username);
+    User findUserByEmail(String email);
 
     void deleteUserById(Long id);
 

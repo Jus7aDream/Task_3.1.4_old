@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public void addUser(User user) {
-        User userFromDB = userRepo.findUserByUsername(user.getUsername());
+        User userFromDB = userRepo.findUserByEmail(user.getUsername());
         if (userFromDB == null) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepo.save(user);
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void updateUser(User user) {
         if (user.getPassword().isEmpty()) {
-            user.setPassword(userRepo.findUserByUsername(user.getUsername()).getPassword());
+            user.setPassword(userRepo.findUserByEmail(user.getUsername()).getPassword());
         } else {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
         }
@@ -70,8 +70,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+    public User getUserByUsername(String username) {
+        return userRepo.findUserByEmail(username);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepo.findUserByUsername(username);
+        User user = userRepo.findUserByEmail(username);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }

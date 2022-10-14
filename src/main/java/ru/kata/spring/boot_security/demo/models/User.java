@@ -50,11 +50,6 @@ public class User implements UserDetails {
     @Column(name = "email", unique=true)
     private String email;
 
-    @NotEmpty(message = "Username should not be empty")
-    @Size(min = 3, max = 255, message = "Username should be between 3 and 255 characters")
-    @Column(name = "username", unique=true)
-    private String username;
-
 //    @NotEmpty(message = "Password should not be empty")
 //    @Size(min = 3, max = 255, message = "Password should be between 3 and 255 characters")
     @Column(name = "password")
@@ -71,6 +66,14 @@ public class User implements UserDetails {
         return getRoles();
     }
 
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    public void setUsername(String username) {
+        this.email = username;
+    }
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -96,16 +99,16 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return age == user.age && Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(roles, user.roles);
+        return age == user.age && Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, age, email, username, password, roles);
+        return Objects.hash(id, firstName, lastName, age, email, password, roles);
     }
 
     @Override
     public String toString() {
-        return id + firstName + lastName + age + email + username + password + roles;
+        return id + firstName + lastName + age + email + password + roles;
     }
 }
