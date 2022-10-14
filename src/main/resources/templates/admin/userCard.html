@@ -21,52 +21,52 @@
     <div class="m-auto" style="max-width: 25%;">
         <form th:method="POST" th:action="@{/admin/users}" th:object="${user}">
             <div class="form-group text-center">
-                <label for="firstName"><strong>First Name</strong></label>
+                <label for="addFirstName"><strong>First Name</strong></label>
                 <input type="text" th:field="*{firstName}"
-                       class="form-control form-control-sm" id="firstName" placeholder="firstName">
+                       class="form-control form-control-sm" id="addFirstName" placeholder="firstName">
             </div>
             <div class="form-group text-center">
-                <label for="lastName"><strong>Last Name</strong></label>
+                <label for="addLastName"><strong>Last Name</strong></label>
                 <input type="text" th:field="*{lastName}"
-                       class="form-control form-control-sm" id="lastName"
+                       class="form-control form-control-sm" id="addLastName"
                        placeholder="lastName">
             </div>
             <div class="form-group text-center">
-                <label for="Age"><strong>Age</strong></label>
+                <label for="addAge"><strong>Age</strong></label>
                 <input type="number" th:field="*{age}"
-                       class="form-control form-control-sm" id="Age"
+                       class="form-control form-control-sm" id="addAge"
                        placeholder="Age">
             </div>
             <div class="form-group text-center">
-                <label for="email"><strong>Email</strong></label>
+                <label for="addEmail"><strong>Email</strong></label>
                 <input type="email" th:field="*{email}"
-                       class="form-control form-control-sm" id="email"
+                       class="form-control form-control-sm" id="addEmail"
                        placeholder="email">
             </div>
             <div class="form-group text-center">
-                <label for="username"><strong>Username</strong></label>
+                <label for="addUsername"><strong>Username</strong></label>
                 <input type="text" th:field="*{username}"
-                       class="form-control form-control-sm" id="username"
+                       class="form-control form-control-sm" id="addUsername"
                        placeholder="username">
             </div>
             <div class="form-group text-center">
-                <label for="password"><strong>Password</strong></label>
+                <label for="addPassword"><strong>Password</strong></label>
                 <input type="password"
                        th:field="*{password}"
-                       class="form-control form-control-sm" id="password"
+                       class="form-control form-control-sm" id="addPassword"
                        placeholder="password">
             </div>
-                        <div class="form-group text-center">
-                            <label for="roles"><strong>Role</strong></label>
-                            <select multiple name="roles" required
-                                    class="form-control form-control-sm" id="roles"
-                                    size="2">
-                                <th:block th:each="role : ${allRoles}">
-                                    <option th:text="${role}"
-                                            th:value="${role.getId()}"></option>
-                                </th:block>
-                            </select>
-                        </div>
+            <div class="form-group text-center">
+                <label for="addRoles"><strong>Role</strong></label>
+                <select multiple name="roles" required
+                        class="form-control form-control-sm" id="addRoles"
+                        size="2">
+                    <th:block th:each="role : ${allRoles}">
+                        <option th:text="${role}"
+                                th:value="${role.getId()}"></option>
+                    </th:block>
+                </select>
+            </div>
 
             <div class="form-group text-center">
                 <button type="submit"

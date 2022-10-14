@@ -15,81 +15,70 @@
     <title>edit</title>
 </head>
 <body>
-<div class="form-group text-center">
-    <h5>Edit user</h5>
-</div>
 <div class="border shadow-sm p-3 mb-5 bg-white rounded-bottom topTable"
      style="max-width: 98%;">
-    <div class="m-auto" style="max-width: 25%;">
-        <form th:method="PATCH" th:action="@{/admin/users/{id}(id=${user.getId()})}" th:object="${user}">
-            <div class="form-group text-center">
-                <label for="id"><strong>ID</strong></label>
-                <input type="text" th:field="*{id}"
-                       class="form-control form-control-sm" id="id"
-                       placeholder="firstName" disabled="disabled">
-            </div>
-            <div class="form-group text-center">
-                <label for="firstName"><strong>First Name</strong></label>
-                <input type="text" th:field="*{firstName}"
-                       class="form-control form-control-sm" id="firstName" placeholder="firstName">
-            </div>
-            <div class="form-group text-center">
-                <label for="lastName"><strong>Last Name</strong></label>
-                <input type="text" th:field="*{lastName}"
-                       class="form-control form-control-sm" id="lastName"
-                       placeholder="lastName">
-            </div>
-            <div class="form-group text-center">
-                <label for="Age"><strong>Age</strong></label>
-                <input type="number" th:field="*{age}"
-                       class="form-control form-control-sm" id="Age"
-                       placeholder="Age">
-            </div>
-            <div class="form-group text-center">
-                <label for="email"><strong>Email</strong></label>
-                <input type="email" th:field="*{email}"
-                       class="form-control form-control-sm" id="email"
-                       placeholder="email">
-            </div>
-            <div class="form-group text-center">
-                <label for="username"><strong>Username</strong></label>
-                <input type="text" th:field="*{username}"
-                       class="form-control form-control-sm" id="username"
-                       placeholder="username">
-                <div style="color:red" th:if="${#fields.hasErrors('username')}"
-                     th:errors="*{username}">Name error
+    <form th:method="PATCH" th:action="@{/admin/users/{id}(id=${user.getId()})}" th:object="${user}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit user</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="form-group">
+                        <label for="idEdit" class="col-form-label"><strong>ID</strong></label>
+                        <input type="text" th:field="*{id}" class="form-control" id="idEdit" name="id"
+                               disabled="disabled">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstNameEdit" class="col-form-label"><strong>First Name</strong></label>
+                        <input type="text" th:field="*{firstName}" class="form-control" id="firstNameEdit"
+                               name="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastNameEdit" class="col-form-label"><strong>Last Name</strong></label>
+                        <input type="text" th:field="*{lastName}" class="form-control" id="lastNameEdit"
+                               name="lastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="ageEdit" class="col-form-label"><strong>Age</strong></label>
+                        <input type="number" th:field="*{age}" class="form-control" id="ageEdit" name="age">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailEdit" class="col-form-label"><strong>Email</strong></label>
+                        <input type="text" th:field="*{email}" class="form-control" id="emailEdit" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="usernameEdit" class="col-form-label"><strong>Username</strong></label>
+                        <input type="text" th:field="*{username}" class="form-control" id="usernameEdit" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordEdit" class="col-form-label"><strong>Password</strong></label>
+                        <input type="password" th:field="*{password}" class="form-control" id="passwordEdit" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="rolesEdit"><strong>Role</strong></label>
+                        <select multiple name="roles[]" required
+                                class="form-control form-control-sm" id="rolesEdit"
+                                size="2">
+                            <th:block th:each="role : ${allRoles}">
+                                <option th:text="${role}"
+                                        th:value="${role.getId()}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <td><a th:href="@{/admin/users}">
+                        <button type="button" class="btn btn-secondary">Close</button>
+                    </a></td>
+                    <button type="submit" class="btn btn-primary">Edit</button>
                 </div>
             </div>
-            <div class="form-group text-center">
-                <label for="password"><strong>Password</strong></label>
-                <input type="password"
-                       th:field="*{password}"
-                       class="form-control form-control-sm" id="password"
-                       placeholder="password">
-                <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name error
-                </div>
-            </div>
-            <div class="form-group text-center">
-                <label for="roles"><strong>Role</strong></label>
-                <select multiple name="roles[]" required
-                        class="form-control form-control-sm" id="roles"
-                        size="2">
-                    <th:block th:each="role : ${allRoles}">
-                        <option th:text="${role}"
-                                th:value="${role.getId()}"></option>
-                    </th:block>
-                </select>
-            </div>
-            <div class="form-group text-right">
-                <td><a th:href="@{/admin/users}">
-                    <button type="button" class="btn btn-secondary">Close</button>
-                </a></td>
-                <td th:method="PATCH" th:action="@{/admin/users/{id}(id=${user.getId()})}">
-                    <button type="submit" class="btn btn-info">Edit</button>
-                </td>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 </body>
 </html>

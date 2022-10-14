@@ -7,10 +7,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.RoleService;
-import ru.kata.spring.boot_security.demo.services.RoleServiceImpl;
 import ru.kata.spring.boot_security.demo.services.UserService;
+import ru.kata.spring.boot_security.demo.services.UserServiceImpl;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 /**
  * @ In the name of Allah, most gracious and most merciful! 04.10.2022
@@ -20,6 +21,7 @@ import javax.validation.Valid;
 @RequestMapping("admin")
 public class AdminController {
     private final UserService userService;
+    private final UserServiceImpl userServiceImpl;
     private final RoleService roleService;
 
     @GetMapping("/admin")
@@ -28,7 +30,9 @@ public class AdminController {
     }
 
     @GetMapping("users")
-    public String showAllUsers(Model model) {
+    public String showAllUsers(Principal principal, Model model) {
+        User user = (User) userServiceImpl.loadUserByUsername(principal.getName());
+        model.addAttribute("user", user);
         model.addAttribute("users", userService.findAllUsers());
         return "admin/users";
     }
