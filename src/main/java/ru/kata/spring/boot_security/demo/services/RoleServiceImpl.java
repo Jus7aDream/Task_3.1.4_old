@@ -6,7 +6,6 @@ import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.repo.RoleRepo;
 
 import java.util.List;
-//
 /**
  * @ In the name of Allah, most gracious and most merciful! 05.10.2022
  */

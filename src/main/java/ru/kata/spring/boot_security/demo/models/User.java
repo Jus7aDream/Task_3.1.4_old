@@ -46,10 +46,10 @@ public class User implements UserDetails {
 
     @NotEmpty(message = "Email should be not empty")
     @Email(message = "Email should be valid")
-    @Column(name = "email", unique=true)
+    @Column(name = "email", unique = true)
     private String email;
 
-//    @NotEmpty(message = "Password should not be empty")
+    //    @NotEmpty(message = "Password should not be empty")
 //    @Size(min = 3, max = 255, message = "Password should be between 3 and 255 characters")
     @Column(name = "password")
     private String password;
@@ -73,6 +73,7 @@ public class User implements UserDetails {
     public void setUsername(String username) {
         this.email = username;
     }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

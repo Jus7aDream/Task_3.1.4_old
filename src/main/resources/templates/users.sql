@@ -36,4 +36,3 @@ VALUES (1, 2);
 INSERT INTO schema_hiber.users_roles (user_id, role_id)
 VALUES (2, 2);
 
-
