@@ -16,21 +16,24 @@
 </head>
 <body>
 <!--navbar-dark-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand">
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
         <tr>
-            <td th:text="${user.email}"></td>
+            <b>
+                <td th:text="${user.email}"></td>
+            </b>
             with roles:
             <td th:text="${user.roles}"></td>
         </tr>
     </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-        </ul>
-        <a href="/logout" style="color: darkgray"
-           class="text-decoration-none d-flex justify-content-end">Logout</a>
-    </div>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="/logout">Logout</a>
+        </li>
+    </ul>
 </nav>
+<br>
+<br>
 <!--navbar-dark-end-->
 <br>
 <div class="row">
@@ -45,39 +48,39 @@
     <!--    main-page-->
 
     <div class="col-10" style="background: whitesmoke">
-<!--        <div class="shadow-none p-0 mb-5 bg-light rounded-0 wrap">-->
-            <h1>User information-page</h1>
-            <div class="border shadow-sm p-3 mb-5 bg-white rounded-bottom topTable"
-                 style="max-width: 98%;">
-                <!--                table-->
-                <table class="table table-striped">
-                    <thead>
-                    <strong>About user</strong>
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Age</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td th:text="${user.id}"></td>
-                        <td th:text="${user.firstName}"></td>
-                        <td th:text="${user.lastName}"></td>
-                        <td th:text="${user.age}"></td>
-                        <td th:text="${user.email}"></td>
-                        <td th:text="${user.roles}"></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <!--                table-end-->
-            </div>
+        <!--        <div class="shadow-none p-0 mb-5 bg-light rounded-0 wrap">-->
+        <h1>User information-page</h1>
+        <div class="border shadow-sm p-3 mb-5 bg-white rounded-bottom topTable"
+             style="max-width: 98%;">
+            <!--                table-->
+            <table class="table table-striped">
+                <thead>
+                <strong>About user</strong>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.age}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.roles}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <!--                table-end-->
         </div>
-<!--            main-page-end-->
     </div>
+    <!--            main-page-end-->
+</div>
 </div>
 </body>
 </html>

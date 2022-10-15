@@ -15,10 +15,11 @@
     <title>userCard</title>
 </head>
 <body>
-<br>
-<div class="border shadow-sm p-3 mb-5 bg-white rounded-bottom topTable"
-     style="max-width: 98%;">
-    <div class="m-auto" style="max-width: 25%;">
+</div>
+<div class="m-auto shadow-sm p-3 mb-5 bg-white rounded-bottom topTable "
+     style="max-width: 50%;">
+    <h5>Add new user</h5>
+    <div class="m-auto" style="max-width: 30%;">
         <form th:method="POST" th:action="@{/admin/users}" th:object="${user}">
             <div class="form-group text-center">
                 <label for="addFirstName"><strong>First Name</strong></label>
@@ -70,5 +71,6 @@
         </form>
     </div>
 </div>
+
 </body>
 </html>
