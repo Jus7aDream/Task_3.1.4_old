@@ -76,7 +76,6 @@
                             <th scope="col">Age</th>
                             <th scope="col">Email</th>
                             <th scope="col">Role</th>
-                            <th scope="col">Password</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
@@ -92,7 +91,6 @@
                             <td th:text="${user.age}">
                             <td th:text="${user.email}">
                             <td th:text="${user.roles}">
-                            <td th:text="${user.password}">
                             <td><a th:href="@{/admin/users/{id}/edit(id=${user.getId()})}">
                                 <button type="button" class="btn btn-info">Edit</button>
                             </a></td>
