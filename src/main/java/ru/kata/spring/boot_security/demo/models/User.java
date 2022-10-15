@@ -28,7 +28,6 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-//    @Column(nullable = false, updatable = false)
     private Long id;
 
     @NotEmpty(message = "Name should not be empty")

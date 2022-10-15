@@ -9,7 +9,7 @@ import ru.kata.spring.boot_security.demo.services.UserServiceImpl;
 
 
 import java.security.Principal;
-
+//
 /**
  * @ In the name of Allah, most gracious and most merciful! 19.09.2022
  */

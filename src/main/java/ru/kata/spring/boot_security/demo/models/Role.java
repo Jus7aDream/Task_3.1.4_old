@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 /**
  * @ In the name of Allah, most gracious and most merciful! 05.10.2022
  */
+//
 @Entity
 @Table(name = "roles")
 @Data
